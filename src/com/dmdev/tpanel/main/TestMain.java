@@ -1,13 +1,7 @@
 package com.dmdev.tpanel.main;
 
-import com.dmdev.tpanel.dao.UserDao;
-import com.dmdev.tpanel.dto.UserDto;
 import com.dmdev.tpanel.entity.User;
 import com.dmdev.tpanel.service.UserService;
-import com.sun.tools.javac.Main;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class TestMain {
 
@@ -15,16 +9,28 @@ public class TestMain {
 
     public static void main(String[] args) {
 
-        TestMain.gg();
+        System.out.println(userService.findAll());
+
+//        push();
+        System.out.println(userService.delete(3L));
+
+
+        System.out.println(userService.findAll());
 
     }
 
-    public static void userToList() {
-        System.out.println(userService.findAll().);
+    public static void adduser() {
+        User user = new User();
+        user.setName("Petr");
+        user.setEmail("test2@gmail.com");
+        user.setPassword("123");
+
+
+        System.out.println(userService.save(user));
     }
 
-    public static void gg() {
-        TestMain.userToList();
+    public static void push() {
+        TestMain.adduser();
     }
 
 }

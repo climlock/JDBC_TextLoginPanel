@@ -2,8 +2,10 @@ package com.dmdev.tpanel.service;
 
 import com.dmdev.tpanel.dao.UserDao;
 import com.dmdev.tpanel.dto.UserDto;
+import com.dmdev.tpanel.entity.User;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class UserService {
@@ -26,6 +28,18 @@ public class UserService {
                         .build()
                 )
                 .collect(Collectors.toList());
+    }
+
+    public Optional<User> findById(Long id) {
+        return userDao.findById(id);
+    }
+
+    public User save(User user) {
+        return userDao.save(user);
+    }
+
+    public boolean delete(Long id) {
+        return userDao.delete(id);
     }
 
     public static UserService getInstance() {
